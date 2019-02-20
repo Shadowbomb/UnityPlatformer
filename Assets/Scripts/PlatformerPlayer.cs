@@ -34,6 +34,7 @@ public class PlatformerPlayer : MonoBehaviour {
             grounded = true;
         }
 
+        _body.gravityScale = grounded && deltaX == 0 ? 0 : 1;
         if (grounded && Input.GetKeyDown(KeyCode.Space)) {
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
